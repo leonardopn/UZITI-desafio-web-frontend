@@ -1,0 +1,58 @@
+.card-product {
+    position      : relative;
+    width             : 300px;
+    padding           : 15px;
+    padding-bottom    : 100px;
+    margin            : 15px;
+    border-radius     : 10px;
+    -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.14);
+    box-shadow        : 0px 1px 3px 1px rgba(0, 0, 0, 0.14);
+}
+
+.card-product h1 {
+    text-justify: inter-word;
+    margin: 15px 15px 0px 15px;
+    font-size: 20px
+}
+
+.card-product h2 {
+    font-size: 15px;
+    margin: 0px 15px 15px 15px;
+    color    : rgb(136, 136, 136)
+}
+
+.card-product h3 {
+    font-size: 17px;
+    margin: 10px 15px 25px 15px;
+    color    : rgb(37, 37, 37)
+}
+
+.card-product p {
+    margin: 15px 15px 0px 15px;
+    color: #52AA79;
+}
+
+.card-product a {
+    margin: 0px 15px 0px 15px;
+    color: #5888BE
+}
+
+
+.card-product img {
+    max-width:300px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+}
+
+.div-img {
+    display    : flex;
+    justify-content: center;
+    width : 300px;
+    height: 300px;
+}
+
+#icon-recycle{
+    width:20px;
+    vertical-align: middle;
+}
