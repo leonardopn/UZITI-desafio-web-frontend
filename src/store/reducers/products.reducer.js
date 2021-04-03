@@ -11,6 +11,11 @@ export default function configsReducer(state = initialState, action) {
             return {
                 arrayProducts: action.payload
             };
+        case types.UPDATE_VIEW_PRODUCTS:
+            return {
+                ...state,
+                arrayProducts: action.payload
+            };
         default:
             return state;
     }

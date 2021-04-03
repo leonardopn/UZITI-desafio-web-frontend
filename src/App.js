@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { getProducts } from "./store/actions/products.action"
 
 function App(props) {
-	React.useEffect(_=>{
+	React.useEffect(() =>{
 		props.getProducts()
-	})
+	});
 
 	return (
 		<div className="App">
@@ -17,17 +17,17 @@ function App(props) {
 }
 
 const mapDispatchToProps = dispatch => {
-	return (
-		{
-			getProducts() {
-				const action = getProducts();
-				action.payload.then(value => {
-					action.payload = value;
-					dispatch(action);
-				});
-			}
-		}
-	)
+    return (
+        {
+            getProducts() {
+                const action = getProducts();
+                action.payload.then(value => {
+                    action.payload = value;
+                    dispatch(action);
+                });
+            }
+        }
+    )
 }
 
 export default connect(null, mapDispatchToProps)(App);
