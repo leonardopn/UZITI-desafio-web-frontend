@@ -9,6 +9,17 @@
     box-shadow        : 0px 1px 3px 1px rgba(0, 0, 0, 0.14);
 }
 
+.card-product-edit {
+    display        : flex;
+    flex-direction: column;
+    width             : 300px;
+    padding           : 15px;
+    margin            : 15px;
+    border-radius     : 10px;
+    -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.14);
+    box-shadow        : 0px 1px 3px 1px rgba(0, 0, 0, 0.14);
+}
+
 .card-product:hover {
     transform : scale(1.05);
     transition: transform .2s
@@ -60,4 +71,9 @@
 #icon-recycle {
     width         : 20px;
     vertical-align: middle;
+}
+
+#button_edit{
+    margin:0;
+    padding: 3px 5px 3px 5px;
 }

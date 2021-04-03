@@ -1,7 +1,58 @@
 .App {
-  display    : flex;
+  display        : flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 100%;
+  align-items    : center;
+  flex-wrap      : wrap;
+  height         : 100%;
+}
+
+button {
+  text-align        : center;
+  font-size         : 25px;
+  padding           : 5px 15px 5px 15px;
+  border-radius     : 25px;
+  margin            : 10px;
+  outline           : none;
+  background-color  : #fff;
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.14);
+  box-shadow        : 0px 1px 3px 1px rgba(0, 0, 0, 0.14);
+  transition        : 0.5s
+}
+
+.input-default {
+  height       : 30px;
+  padding-left : 10px;
+  margin-bottom: 10px;
+  font-size    : 17px;
+  border-radius: 5px;
+  outline      : none;
+  border       : 1px solid rgb(190, 190, 190)
+}
+
+.button_cancel {
+  color : #ff5555;
+  border: 3px solid #ff5555
+}
+
+.button_cancel:hover {
+  background-color: #ff2121;
+  color           : #fff
+}
+
+.button_cancel:active {
+  background-color: #ffadad;
+}
+
+.button_save {
+  color : #0d913f;
+  border: 3px solid #0d913f
+}
+
+.button_save:hover {
+  color           : #fff;
+  background-color: #006d2a;
+}
+
+.button_save:active {
+  background-color: #2bfa7b;
 }
