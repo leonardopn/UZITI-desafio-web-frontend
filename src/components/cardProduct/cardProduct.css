@@ -74,6 +74,7 @@
 }
 
 #button_edit{
-    margin:0;
-    padding: 3px 5px 3px 5px;
+    margin-left:45px;
+    margin-right:45px;
+    padding: 5px 8px 5px 8px;
 }

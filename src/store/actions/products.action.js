@@ -9,7 +9,7 @@ function loadProductsFromAPI() {
                 const arrayTemp = []
                 resp.data.forEach(product => {
                     const recycle = product.recycle === 1 ? true : false;
-                    arrayTemp.push(<CardProduct key={product.id} informations={{ ...product, recycle }}></CardProduct>)
+                    arrayTemp.push(<CardProduct key={product.id} informations={{ ...product, recycle, collectionLength:  resp.data.length}}></CardProduct>)
                 });
 
                 resolve(arrayTemp);

@@ -2,6 +2,8 @@ import React from 'react';
 import ContUnit from "../contUnit/ContUnit";
 import recycle_color_32 from "../../img/recycle_color_32.svg";
 import edit_color_24 from "../../img/edit_color_24.svg";
+import arrow_color_left_24 from "../../img/arrow_color_left_24.png";
+import arrow_color_right_24 from "../../img/arrow_color_right_24.png";
 import { connect } from "react-redux";
 import { getProducts } from "../../store/actions/products.action";
 import axios from "axios";
@@ -59,6 +61,37 @@ const CardProduct = (props) => {
         iconRecycle = "";
     }
 
+
+    function changeOrder(position) {
+        let data = {
+            oldOrder: informations.ordination,
+            currentOrder: informations.ordination + 1,
+            newOrder: informations.ordination + 1,
+            id: informations.id
+        }
+
+        if (position === "BACK") {
+            data = {
+                oldOrder: informations.ordination,
+                currentOrder: informations.ordination - 1,
+                newOrder: informations.ordination - 1,
+                id: informations.id
+            }
+            if (informations.ordination > 0) {
+                axios.post("http://localhost:3542/updateOrder", data).then(resp => {
+                    props.getProducts();
+                }).catch(err => console.log(err))
+            }
+        }
+        else {
+            if (informations.ordination < informations.collectionLength - 1) {
+                axios.post("http://localhost:3542/updateOrder", data).then(resp => {
+                    props.getProducts();
+                }).catch(err => console.log(err))
+            }
+        }
+    }
+
     switch (type) {
         case "EDIT":
             return <div className="card-product-edit">
@@ -88,7 +121,9 @@ const CardProduct = (props) => {
             </div>;
         default:
             return <div className="card-product">
+                <button className="button_blue" onClick={e => changeOrder("BACK")}><img style={{ verticalAlign: "middle" }} src={arrow_color_left_24} alt="edit_icon"></img></button>
                 <button className="button_blue" id="button_edit" onClick={e => setType("EDIT")}><img style={{ verticalAlign: "middle" }} src={edit_color_24} alt="edit_icon"></img></button>
+                <button className="button_blue" onClick={e => changeOrder()}><img style={{ verticalAlign: "middle" }} src={arrow_color_right_24} alt="edit_icon"></img></button>
                 <div className="div-img">
                     <img src={informations.img} alt="product_img"></img>
                 </div>
