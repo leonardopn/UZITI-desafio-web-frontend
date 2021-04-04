@@ -29,12 +29,29 @@ const CardProduct = (props) => {
             recycle: setCheckBox(inputData.recycle)
         }
 
-        axios.post("http://localhost:3542/updateProduct", data).then(res => {
-            props.getProducts()
-            setType("CREATED");
-        }).catch(err => {
-            alert(err)
-        })
+        let status = true;
+        if (data.unit < 1) {
+            alert("Unit cannot be less than 1");
+            status = false;
+        }
+        if (data.price < 1) {
+            alert("Price cannot be less than 1");
+            status = false;
+        }
+
+        if (!data.title || !data.unit || !data.price || !data.description || !data.recycle) {
+            alert("Fill in the empty spaces");
+            status = false;
+        }
+
+        if (status) {
+            axios.post("http://localhost:3542/updateProduct", data).then(res => {
+                props.getProducts();
+                setType("CREATED");
+            }).catch(err => {
+                alert(err)
+            })
+        }
     }
 
     if (!informations.recycle) {
@@ -50,11 +67,11 @@ const CardProduct = (props) => {
                 <label>Title: </label>
                 <input className="input-default" type="text" value={inputData.title} onChange={e => setInputData({ ...inputData, title: e.target.value })}></input>
                 <label>Unit: </label>
-                <input className="input-default" type="text" value={inputData.unit} onChange={e => setInputData({ ...inputData, unit: e.target.value })}></input>
+                <input className="input-default" min="1" type="number" value={inputData.unit} onChange={e => setInputData({ ...inputData, unit: e.target.value })}></input>
                 <label>Desc. Unit: </label>
                 <input className="input-default" type="text" value={inputData.description} onChange={e => setInputData({ ...inputData, description: e.target.value })}></input>
                 <label>Price: </label>
-                <input className="input-default" type="text" value={inputData.price} onChange={e => setInputData({ ...inputData, price: e.target.value })}></input>
+                <input className="input-default" min="1" type="number" value={inputData.price} onChange={e => setInputData({ ...inputData, price: e.target.value })}></input>
                 <label>Promotion Information: </label>
                 <input className="input-default" type="text" value={inputData.promotion} onChange={e => setInputData({ ...inputData, promotion: e.target.value })}></input>
                 <div>
@@ -62,7 +79,10 @@ const CardProduct = (props) => {
                     <input type="checkbox" checked={inputData.recycle} value={inputData.recycle} onChange={e => setInputData({ ...inputData, recycle: e.target.checked })}></input>
                 </div>
 
-                <button className="button_cancel" onClick={e => setType("CREATED")}>Cancel</button>
+                <button className="button_cancel" onClick={e => {
+                    setType("CREATED")
+                    setInputData({ ...informations })
+                }}>Cancel</button>
                 <button className="button_save" onClick={e => updateProduct()}>Save</button>
             </div>;
         default:
