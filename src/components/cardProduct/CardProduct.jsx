@@ -1,7 +1,7 @@
 import React from 'react';
-import ContUnit from "../contUnit/ContUnit"
-import recycle_color_32 from "../../img/recycle_color_32.svg"
-import edit_color_24 from "../../img/edit_color_24.svg"
+import ContUnit from "../contUnit/ContUnit";
+import recycle_color_32 from "../../img/recycle_color_32.svg";
+import edit_color_24 from "../../img/edit_color_24.svg";
 import { connect } from "react-redux";
 import { getProducts } from "../../store/actions/products.action";
 import axios from "axios";
@@ -16,10 +16,10 @@ const CardProduct = (props) => {
 
     function setCheckBox(value) {
         if (value) {
-            return 1
+            return 1;
         }
         else {
-            return 2
+            return 2;
         }
     }
 
@@ -49,7 +49,8 @@ const CardProduct = (props) => {
                 props.getProducts();
                 setType("CREATED");
             }).catch(err => {
-                alert(err)
+                alert(err);
+                setType("CREATED");
             })
         }
     }
@@ -80,8 +81,8 @@ const CardProduct = (props) => {
                 </div>
 
                 <button className="button_cancel" onClick={e => {
-                    setType("CREATED")
-                    setInputData({ ...informations })
+                    setType("CREATED");
+                    setInputData({ ...informations });
                 }}>Cancel</button>
                 <button className="button_save" onClick={e => updateProduct()}>Save</button>
             </div>;

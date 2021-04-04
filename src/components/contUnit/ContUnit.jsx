@@ -1,5 +1,5 @@
 import React from 'react';
-import "./contUnit.css"
+import "./contUnit.css";
 
 const ContUnit = (props) => {
     const [unit, setUnit] = React.useState(0);
@@ -10,17 +10,17 @@ const ContUnit = (props) => {
     function moreUnit() {
         const unitIncrement = unit + 1;
         if (unitIncrement <= props.max) {
-            setUnit(unitIncrement)
+            setUnit(unitIncrement);
         }
 
 
         if (unitIncrement > 0) {
             setButtonMinusClass("button_blue");
             if (buttonAddProperties.clicked) {
-                setButtonAddProperties({ disabled: "", class: "button_blue", text: "UPDATE", clicked: false })
+                setButtonAddProperties({ disabled: "", class: "button_blue", text: "UPDATE", clicked: false });
             }
             else {
-                setButtonAddProperties({ ...buttonAddProperties, disabled: "", class: "button_blue" })
+                setButtonAddProperties({ ...buttonAddProperties, disabled: "", class: "button_blue" });
             }
         }
     }
@@ -28,21 +28,21 @@ const ContUnit = (props) => {
     function minusUnit() {
         const unitDecrement = unit - 1;
         if (unitDecrement >= 0) {
-            setUnit(unitDecrement)
+            setUnit(unitDecrement);
         }
         if (unitDecrement === 0) {
             if (buttonAddProperties.clicked) {
-                setButtonAddProperties({ clicked: false, disabled: "", class: "button_blue", text: "UPDATE" })
+                setButtonAddProperties({ clicked: false, disabled: "", class: "button_blue", text: "UPDATE" });
             }
             else {
-                setButtonAddProperties({ ...buttonAddProperties, clicked: false, disabled: "disabled", class: "", text: "ADD" })
+                setButtonAddProperties({ ...buttonAddProperties, clicked: false, disabled: "disabled", class: "", text: "ADD" });
             }
 
             setButtonMinusClass("button_gray");
         }
         else {
             if (buttonAddProperties.clicked) {
-                setButtonAddProperties({ ...buttonAddProperties, disabled: "", class: "button_blue", text: "UPDATE" })
+                setButtonAddProperties({ ...buttonAddProperties, disabled: "", class: "button_blue", text: "UPDATE" });
             }
         }
     }
@@ -52,7 +52,7 @@ const ContUnit = (props) => {
             setButtonAddProperties({ disabled: "disabled", class: "", clicked: true, text: "ADD" });
         }
         else {
-            setButtonAddProperties({ disabled: "disabled", class: "", clicked: true, text: "✔" })
+            setButtonAddProperties({ disabled: "disabled", class: "", clicked: true, text: "✔" });
         }
 
     }
